@@ -12,6 +12,11 @@ CC = cc
 INC = include/my_ls.h
 OBJ = $(SRC:c=o)
 SRC = src/my_ls.c \
+      library/put_char.c \
+      library/len_str.c \
+      library/put_str.c \
+      library/put_str_err.c \
+      library/put_nbr.c \
 
 all: my_ls
 

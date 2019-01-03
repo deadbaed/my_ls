@@ -8,6 +8,8 @@
 #ifndef MY_LS_H
 #define MY_LS_H
 
+#include "library.h"
+
 #ifndef EXIT_OKAY
 #define EXIT_OKAY (0)
 #endif
