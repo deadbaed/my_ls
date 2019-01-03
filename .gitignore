@@ -1,6 +1,8 @@
 # x4m3's gitignore for tek
 # by default: valgrind, c, patches, vim, git, linux, osx, windows
 
+my_ls
+
 ### vim auto-completion ###
 .clang_complete
 
