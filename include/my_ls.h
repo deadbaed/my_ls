@@ -8,7 +8,9 @@
 #ifndef MY_LS_H
 #define MY_LS_H
 
-#include "library.h"
+#include <dirent.h> /* for directory stuff */
+#include <sys/stat.h> /* for stat structure and function */
+#include "library.h" /* for the std lib */
 
 #ifndef EXIT_OKAY
 #define EXIT_OKAY (0)
@@ -17,5 +19,8 @@
 #ifndef EXIT_ERROR
 #define EXIT_ERROR (84)
 #endif
+
+/* directory.c */
+void directory(char *path);
 
 #endif
