@@ -16,8 +16,7 @@ int my_ls(char *path)
         put_str_err(": no such file or directory\n");
         return EXIT_ERROR;
     }
-    if (S_ISDIR(st.st_mode) != 0)
-        directory(path);
+    (!(S_ISDIR(st.st_mode))) ? put_str_n(path) : directory(path);
     return EXIT_OKAY;
 }
 
