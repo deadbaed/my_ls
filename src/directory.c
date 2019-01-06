@@ -15,7 +15,6 @@ void directory(char *path)
 
     for (; dir; dir = readdir(fs_dir)) {
         content_name = dir->d_name;
-        put_str(content_name);
-        put_char('\n');
+        put_str_n(content_name);
     }
 }
