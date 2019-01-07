@@ -23,12 +23,12 @@ int my_ls(char *path)
 int main(int ac, char **av)
 {
     int err_check = 0;
-    int is_flag = 0;
+    char flag = 0;
 
     (ac == 1) ? directory(".") : 0;
-    while (*++av) {
-        is_flag = (*av[0] == '-') ? 1: 0;
-        (is_flag) ? 0 : (my_ls(*av)) ? err_check = EXIT_ERROR : 0;
+    for (int i = 1; i < ac; i++) {
+        flag = (av[i][0] == '-') ? av[i][1] : 0;
+        (flag) ? 0 : (my_ls(av[i])) ? err_check = EXIT_ERROR : 0;
     }
     if (err_check == EXIT_ERROR)
         return EXIT_ERROR;
