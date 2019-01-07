@@ -26,4 +26,7 @@ void directory(char *path);
 /* ls/no_flags.c */
 int ls_no_flags(char *path);
 
+/* ls/flag_l.c */
+int ls_flag_l(char *path);
+
 #endif

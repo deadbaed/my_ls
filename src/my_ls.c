@@ -11,7 +11,8 @@ int my_ls(char *path, char flag)
 {
     int ret = 0;
 
-    (!flag) ? ret = ls_no_flags(path) : 0;
+    (flag == 0) ? ret = ls_no_flags(path) : 0;
+    (flag == 'l') ? ret = ls_flag_l(path) : 0;
     if (ret == EXIT_ERROR)
         return EXIT_ERROR;
     return EXIT_OKAY;
