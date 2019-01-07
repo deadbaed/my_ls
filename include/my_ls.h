@@ -23,4 +23,7 @@
 /* directory.c */
 void directory(char *path);
 
+/* ls/no_flags.c */
+int ls_no_flags(char *path);
+
 #endif

@@ -13,6 +13,7 @@ INC = include/my_ls.h
 OBJ = $(SRC:c=o)
 SRC = src/my_ls.c \
       src/directory.c \
+      src/ls/no_flags.c \
       library/put_char.c \
       library/len_str.c \
       library/put_str.c \
