@@ -11,7 +11,7 @@ int my_ls(char *path)
 {
     struct stat st;
 
-    if (stat(path, &st) != 0) {
+    if (stat(path, &st)) {
         put_str_err(path);
         put_str_err(": no such file or directory\n");
         return EXIT_ERROR;
