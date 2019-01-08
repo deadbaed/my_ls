@@ -12,7 +12,6 @@ CC = cc
 INC = include/my_ls.h
 OBJ = $(SRC:c=o)
 SRC = src/my_ls.c \
-      src/directory.c \
       src/ls/no_flags.c \
       src/ls/flag_l.c \
       library/put_char.c \

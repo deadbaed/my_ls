@@ -23,7 +23,7 @@ int main(int ac, char **av)
     int err_check = 0;
     char flag = 0;
 
-    (ac == 1) ? directory(".") : 0;
+    (ac == 1) ? no_flags_directory(".") : 0;
     for (int i = 1; i < ac; i++) {
         flag = (av[i][0] == '-') ? av[i][1] : 0;
         (my_ls(av[i], flag)) ? err_check = EXIT_ERROR : 0;

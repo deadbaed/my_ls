@@ -20,11 +20,9 @@
 #define EXIT_ERROR (84)
 #endif
 
-/* directory.c */
-void directory(char *path);
-
 /* ls/no_flags.c */
 int ls_no_flags(char *path);
+void no_flags_directory(char *path);
 
 /* ls/flag_l.c */
 int ls_flag_l(char *path);
