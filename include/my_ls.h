@@ -13,6 +13,7 @@
 #include <stdlib.h> /* for malloc, free */
 #include <pwd.h> /* for password file entry */
 #include <grp.h> /* for group file entry */
+#include <time.h> /* for ctime */
 #include "library.h" /* for the std lib */
 
 #ifndef EXIT_OKAY

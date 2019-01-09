@@ -24,11 +24,7 @@ int ls_flag_l(struct stat st)
     put_char((st.st_mode & S_IROTH) ? 'r' : '-');
     put_char((st.st_mode & S_IWOTH) ? 'w' : '-');
     put_char((st.st_mode & S_IXOTH) ? 'x' : '-');
-    put_char(' ');
-    put_nbr(st.st_nlink);
-    put_char(' ');
-    put_str(pwd->pw_name);
-    put_char(' ');
-    put_str(grp->gr_name);
+    putput(" %i %s %s %i %s", st.st_nlink, pwd->pw_name, grp->gr_name,
+            st.st_size, ctime(&st.st_mtime));
     return EXIT_OKAY;
 }

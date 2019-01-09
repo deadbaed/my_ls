@@ -21,6 +21,7 @@ SRC = src/my_ls.c \
       library/put_str_err.c \
       library/put_nbr.c \
       library/str_compare.c \
+      library/putput.c \
 
 all: my_ls
 
