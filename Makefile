@@ -22,6 +22,7 @@ SRC = src/my_ls.c \
       library/put_nbr.c \
       library/str_compare.c \
       library/putput.c \
+      library/str_to_word_array.c \
 
 all: my_ls
 
