@@ -10,6 +10,9 @@
 
 #include <dirent.h> /* for directory stuff */
 #include <sys/stat.h> /* for stat structure and function */
+#include <stdlib.h> /* for malloc, free */
+#include <pwd.h> /* for password file entry */
+#include <grp.h> /* for group file entry */
 #include "library.h" /* for the std lib */
 
 #ifndef EXIT_OKAY
@@ -21,10 +24,10 @@
 #endif
 
 /* ls/no_flags.c */
-int ls_no_flags(char *path);
+int ls_no_flags(struct stat st, char *path);
 void no_flags_directory(char *path);
 
 /* ls/flag_l.c */
-int ls_flag_l(char *path);
+int ls_flag_l(struct stat st);
 
 #endif

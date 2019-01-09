@@ -20,15 +20,11 @@ void no_flags_directory(char *path)
     closedir(fs_dir);
 }
 
-int ls_no_flags(char *path)
+int ls_no_flags(struct stat st, char *path)
 {
-    struct stat st;
-
-    if (stat(path, &st)) {
-        put_str_err(path);
-        put_str_err(": no such file or directory\n");
-        return EXIT_ERROR;
-    }
-    (!(S_ISDIR(st.st_mode))) ? put_str_n(path) : no_flags_directory(path);
+    if (!(S_ISDIR(st.st_mode)))
+        put_str_n(path);
+    else
+        no_flags_directory(path);
     return EXIT_OKAY;
 }
