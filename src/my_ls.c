@@ -15,8 +15,11 @@ int my_ls(char *path, char *flag)
     if (path[0] == '-')
         return EXIT_OKAY;
     if (stat(path, &st)) {
-        put_str_err(path);
         put_str_err(": no such file or directory\n");
+        return EXIT_ERROR;
+    }
+    if (!(st.st_mode & S_IROTH)) {
+        put_str_err("permission denied\n");
         return EXIT_ERROR;
     }
     (flag[0] == 'l') ? ret = ls_flag_l(st) : 0;
