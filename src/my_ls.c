@@ -36,7 +36,7 @@ char *store_flags(int ac, char **av)
         flag[i] = ' ';
     flag[5] = '\0';
     for (int i = 1; i < ac; i++) {
-        if (av[i][0] == '-')
+        if (av[i][0] == '-') {
             for (int j = 1; av[i][j]; j++) {
                 (av[i][j] == 'l') ? flag[0] = 'l': 0;
                 (av[i][j] == 'R') ? flag[1] = 'R': 0;
@@ -44,6 +44,7 @@ char *store_flags(int ac, char **av)
                 (av[i][j] == 'r') ? flag[3] = 'r': 0;
                 (av[i][j] == 't') ? flag[4] = 't': 0;
             }
+        }
     }
     return flag;
 }
