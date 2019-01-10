@@ -9,9 +9,9 @@
 
 void format_time(char *str)
 {
-    for (int i = 4; i != 16; i++)
-        put_char(str[i]);
-    put_char(' ');
+    str[16] = '\0';
+    str += 4;
+    putput("%s ", str);
 }
 
 int ls_flag_l(struct stat st)
