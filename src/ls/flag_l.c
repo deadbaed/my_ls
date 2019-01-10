@@ -9,15 +9,9 @@
 
 void format_time(char *str)
 {
-    char **arr = str_to_word_array(str, ' ');
-
-    if (!arr)
-        return;
-    arr[4][5] = '\0';
-    putput(" %s %s %s ", arr[1], arr[3], arr[4]);
-    for (int i = 0; arr[i]; i++)
-        free(arr[i]);
-    free(arr);
+    for (int i = 4; i != 16; i++)
+        put_char(str[i]);
+    put_char(' ');
 }
 
 int ls_flag_l(struct stat st)
@@ -38,7 +32,7 @@ int ls_flag_l(struct stat st)
     put_char((st.st_mode & S_IROTH) ? 'r' : '-');
     put_char((st.st_mode & S_IWOTH) ? 'w' : '-');
     put_char((st.st_mode & S_IXOTH) ? 'x' : '-');
-    putput(" %i %s %s %i", st.st_nlink, pwd->pw_name, grp->gr_name,
+    putput(" %i %s %s %i ", st.st_nlink, pwd->pw_name, grp->gr_name,
             st.st_size);
     format_time(ctime(&st.st_mtime));
     return EXIT_OKAY;
