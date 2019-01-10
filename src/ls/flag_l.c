@@ -27,7 +27,8 @@ int ls_flag_l(struct stat st)
 
     if (!pwd || !grp)
         return EXIT_ERROR;
-    put_char((S_ISDIR(st.st_mode)) ? 'd' : (S_ISBLK(st.st_mode) ? 'b' : '-'));
+    put_char((S_ISDIR(st.st_mode)) ? 'd' :
+            (S_ISBLK(st.st_mode) ? 'b' : (S_ISCHR(st.st_mode) ? 'c' : '-')));
     put_char((st.st_mode & S_IRUSR) ? 'r' : '-');
     put_char((st.st_mode & S_IWUSR) ? 'w' : '-');
     put_char((st.st_mode & S_IXUSR) ? 'x' : '-');
