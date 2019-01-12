@@ -17,5 +17,6 @@ void put_nbr(int nb);
 int str_compare(const char *s1, const char *s2);
 int putput(char *str, ...);
 char **str_to_word_array(const char *str, const char sep);
+char *str_dup_cat_path(const char *path, const char *name);
 
 #endif

@@ -22,8 +22,8 @@ int my_ls(char *path, char *flag)
         put_str_err("permission denied\n");
         return EXIT_ERROR;
     }
-    (flag[0] == 'l') ? ret = ls_flag_l(st) : 0;
-    ret = ls_no_flags(st, path);
+    (flag[0] == 'l' && !(S_ISDIR(st.st_mode))) ? ret = ls_flag_l(st) : 0;
+    ret = ls_no_flags(st, path, flag);
     if (ret == EXIT_ERROR)
         return EXIT_ERROR;
     return EXIT_OKAY;
@@ -57,7 +57,7 @@ int main(int ac, char **av)
     int err_check = 0;
     char *flag = store_flags(ac, av);
 
-    (ac == 1) ? no_flags_directory(".") : 0;
+    (ac == 1) ? no_flags_directory(".", flag) : 0;
     for (int i = 1; i < ac; i++)
         (my_ls(av[i], flag)) ? err_check = EXIT_ERROR : 0;
     free(flag);

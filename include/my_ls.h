@@ -25,8 +25,8 @@
 #endif
 
 /* ls/no_flags.c */
-int ls_no_flags(struct stat st, char *path);
-void no_flags_directory(char *path);
+int ls_no_flags(struct stat st, char *path, char *flag);
+int no_flags_directory(char *path, char *flag);
 
 /* ls/flag_l.c */
 int ls_flag_l(struct stat st);
