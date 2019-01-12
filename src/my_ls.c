@@ -18,7 +18,7 @@ int my_ls(char *path, char *flag)
         put_str_err("no such file or directory\n");
         return EXIT_ERROR;
     }
-    if (!opendir(path)) {
+    if (S_ISDIR(st.st_mode) && !opendir(path)) {
         put_str_err("permission denied\n");
         return EXIT_ERROR;
     }
