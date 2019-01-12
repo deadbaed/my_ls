@@ -14,13 +14,8 @@ void format_time(char *str)
     putput("%s ", str);
 }
 
-int ls_flag_l(struct stat st)
+void print_permissions(struct stat st)
 {
-    struct passwd *pwd = getpwuid(st.st_uid);
-    struct group *grp = getgrgid(st.st_gid);
-
-    if (!pwd || !grp)
-        return EXIT_ERROR;
     put_char((S_ISDIR(st.st_mode)) ? 'd' :
             (S_ISBLK(st.st_mode) ? 'b' : (S_ISCHR(st.st_mode) ? 'c' : '-')));
     put_char((st.st_mode & S_IRUSR) ? 'r' : '-');
@@ -32,6 +27,16 @@ int ls_flag_l(struct stat st)
     put_char((st.st_mode & S_IROTH) ? 'r' : '-');
     put_char((st.st_mode & S_IWOTH) ? 'w' : '-');
     put_char((st.st_mode & S_IXOTH) ? 'x' : '-');
+}
+
+int ls_flag_l(struct stat st)
+{
+    struct passwd *pwd = getpwuid(st.st_uid);
+    struct group *grp = getgrgid(st.st_gid);
+
+    if (!pwd || !grp)
+        return EXIT_ERROR;
+    print_permissions(st);
     putput(" %i %s %s %i ", st.st_nlink, pwd->pw_name, grp->gr_name,
             st.st_size);
     format_time(ctime(&st.st_mtime));
