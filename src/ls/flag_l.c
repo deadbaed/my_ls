@@ -26,7 +26,7 @@ void print_permissions(struct stat st)
     put_char((st.st_mode & S_IXGRP) ? 'x' : '-');
     put_char((st.st_mode & S_IROTH) ? 'r' : '-');
     put_char((st.st_mode & S_IWOTH) ? 'w' : '-');
-    put_char((st.st_mode & S_IXOTH) ? 'x' : '-');
+    put_char((st.st_mode & S_IXOTH) ? 'x' : (st.st_mode & S_ISVTX) ? 'T' : '-');
 }
 
 int ls_flag_l(struct stat st)
